@@ -25,8 +25,3 @@ resource "aws_s3_bucket_policy" "OAI" {
   policy = data.aws_iam_policy_document.s3_policy.json
 }
 
-resource "aws_s3_bucket_object" "snake" {
-  bucket = aws_s3_bucket.main.id
-  key    = "index.html"
-  source = "index.html"
-}
