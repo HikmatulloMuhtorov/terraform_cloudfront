@@ -1,9 +1,5 @@
-resource "aws_route53_zone" "main" {
-  name = "hmuhtorov.link"
-  tags        = merge(local.common_tags, { Name = replace(local.name, "rtype", "sg-main") })
-}
 resource "aws_route53_record" "aws_cloudfront_distribution" {
-  zone_id = aws_route53_zone.main.zone_id
+  zone_id = var.zone_id
   name    = "hmuhtorov.link"
   type    = "A"
 
@@ -15,7 +11,7 @@ resource "aws_route53_record" "aws_cloudfront_distribution" {
   }
 }
 resource "aws_route53_record" "aws_cloudfront_distribution_www" {
-  zone_id = aws_route53_zone.main.zone_id
+  zone_id = var.zone_id
   name    = "www.hmuhtorov.link"
   type    = "A"
 

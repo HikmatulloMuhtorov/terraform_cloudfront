@@ -5,7 +5,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   ]
 
   origin {
-    domain_name = aws_s3_bucket.main.bucket_regional_domain_name
+    domain_name = aws_s3_bucket.main.bucket_domain_name 
     origin_id   = "cloudfront_s3"
 
     s3_origin_config {
@@ -26,7 +26,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
 
   default_cache_behavior {
-    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = "cloudfront_s3"
 
