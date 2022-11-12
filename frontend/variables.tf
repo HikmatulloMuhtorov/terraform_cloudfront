@@ -20,3 +20,9 @@ variable "stage" {
     description = "Current Stage"
     default = "Dev"
 }
+
+variable "zone_id" {
+    type = string
+    description = "Hosted Zone ID"
+    default = "Z07081532T0NKBK6PLAGV"
+}
